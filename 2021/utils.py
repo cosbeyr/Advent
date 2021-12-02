@@ -1,6 +1,9 @@
 def read_data(filename, typ='none'):
     ''' Read in and clean provided data
-        filename: file containing line-delimited integers '''
+        filename: file containing line-delimited data
+        typ: [none - remove white space
+              int  - extract integers
+              tup  - extract strings and integers]'''
     with open(filename, 'r') as f:
         data = [d.strip() for d in f.readlines()]
 
