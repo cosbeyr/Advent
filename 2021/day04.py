@@ -31,10 +31,12 @@ def main():
 
     # PART ONE
     numbers, boards = read_data('./data/day04.txt', typ='bingo')
+    numbers = [0] + numbers
     print(day04_1(numbers, boards))
 
     # PART TWO
     numbers, boards = read_data('./data/day04.txt', typ='bingo')
+    numbers = [0] + numbers
     print(day04_2(numbers, boards))
 
 
