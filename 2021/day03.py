@@ -9,6 +9,21 @@ def day03_1(data):
 
     return int(gamma, 2) * int(epsilon, 2)
 
+
+def day03_2(data, idx=0, high=True):
+    if len(data) == 1:
+        return int(data[0], 2)
+
+    curr = [d[idx] for d in data]
+    zeros = [i for i, n in enumerate(curr) if n == '0']
+    ones = [i for i, n in enumerate(curr) if n == '1']
+
+    p1, p2 = (zeros, ones) if len(zeros) > len(ones) else (ones, zeros)
+    p = p1 if high else p2
+
+    return day03_2([data[i] for i in p], idx=idx+1, high=high)
+
+
 def main():
     data = read_data('./data/day03.txt')
 
@@ -16,7 +31,7 @@ def main():
     print(day03_1(data))
 
     # PART TWO
-
+    print(day03_2(data) * day03_2(data, high=False))
 
 if __name__ == '__main__':
     main()
